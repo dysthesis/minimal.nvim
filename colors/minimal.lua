@@ -14,6 +14,7 @@ local palette = {
   green = "#789978",
   blue = "#7788AA",
   red = "#D70000",
+  lavender = "#A6A1C2",
   none = "none",
   black = "#000000",
   gray1 = "#080808",
@@ -90,7 +91,7 @@ if vim.o.background == "dark" then
   local def_fg = palette.lack
   local const_fg = palette.gray6
   local active = palette.gray7
-  local string_fg = palette.green
+  local string_fg = palette.lavender
   local darker_fg = palette.gray6
   local diffadd = palette.green
   local diffdelete = palette.orange
@@ -107,7 +108,7 @@ if vim.o.background == "dark" then
   local error = palette.red
   local warn = palette.orange
   local hint = palette.gray6
-  local info = palette.green
+  local info = palette.lack
   local ansi = {
     black = palette.black,
     blue = palette.blue,
@@ -179,7 +180,7 @@ if vim.o.background == "dark" then
     -- ModeMsg      { }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- MsgArea      { }, -- Area for messages and cmdline
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
-    MoreMsg                                    = { fg = ansi.green, bold = 1 },
+    MoreMsg                                    = { fg = ansi.blue, bold = 1 },
     NonText                                    = { fg = ansi.cyan },
     Normal                                     = { bg = bg, fg = fg },
     NormalFloat                                = { bg = float_bg },
@@ -189,7 +190,7 @@ if vim.o.background == "dark" then
     PmenuSel                                   = { bg = palette.gray3 },
     PmenuSbar                                  = { bg = palette.gray2 },
     PmenuThumb                                 = { bg = palette.gray4 },
-    Question                                   = { fg = diffadd },
+    Question                                   = { fg = ansi.blue },
     QuickFixLine                               = { bg = special.whitespace },
     Search                                     = { bg = palette.gray4, fg = fg },
     SpecialKey                                 = { fg = ansi.cyan },
@@ -412,7 +413,7 @@ if vim.o.background == "dark" then
     --- Startify
     StartifyBracket                            = { fg = darker_fg },
     StartifyFile                               = { fg = ansi.white },
-    StartifySection                            = { fg = ansi.green },
+    StartifySection                            = { fg = ansi.blue },
     StartifySlash                              = { fg = palette.lack },
     StartifyPath                               = { fg = palette.lack },
     --- Statusline
@@ -444,7 +445,7 @@ if vim.o.background == "dark" then
     --- Hop
     HopNextKey                                 = { fg = ansi.brightyellow },
     HopNextKey1                                = { fg = ansi.cyan },
-    HopNextKey2                                = { fg = palette.green },
+    HopNextKey2                                = { fg = palette.blue },
     HopUnmatched                               = { fg = palette.gray4 },
     --- Lightspeed
     LightspeedGreyWash                         = { fg = palette.gray4 },
@@ -482,7 +483,7 @@ if vim.o.background == "dark" then
     rainbowcol1                                = { fg = ansi.yellow },
     rainbowcol2                                = { fg = ansi.magenta },
     rainbowcol3                                = { fg = ansi.blue },
-    rainbowcol4                                = { fg = ansi.green },
+    rainbowcol4                                = { fg = palette.lavender },
     rainbowcol5                                = { fg = ansi.brightyellow },
     rainbowcol6                                = { fg = ansi.red },
     rainbowcol7                                = { fg = ansi.cyan },
@@ -499,15 +500,15 @@ if vim.o.background == "dark" then
     --- inlay hints
     LspInlayHint                               = { bg = virtual_bg, fg = virtual_fg },
     --- Noice
-    NoiceCmdlineIcon                           = { link = "MinimalDarkGreen" },
-    NoiceCmdlinePopupBorder                    = { link = "MinimalDarkGreen" },
-    NoiceConfirmBorder                         = { link = "MinimalDarkGreen" },
-    NoiceCmdlinePopupBorderCmdline             = { link = "MinimalDarkGreen" },
-    NoiceCmdlineIconCmdline                    = { link = "MinimalDarkGreen" },
-    NoiceCmdlinePopupBorderFilter              = { link = "MinimalDarkGreen" },
-    NoiceCmdlineIconFilter                     = { link = "MinimalDarkGreen" },
-    NoiceCmdlinePopupBorderLua                 = { link = "MinimalDarkGreen" },
-    NoiceCmdlineIconLua                        = { link = "MinimalDarkGreen" },
+    NoiceCmdlineIcon                           = { link = "MinimalBlue" },
+    NoiceCmdlinePopupBorder                    = { link = "MinimalBlue" },
+    NoiceConfirmBorder                         = { link = "MinimalBlue" },
+    NoiceCmdlinePopupBorderCmdline             = { link = "MinimalBlue" },
+    NoiceCmdlineIconCmdline                    = { link = "MinimalBlue" },
+    NoiceCmdlinePopupBorderFilter              = { link = "MinimalBlue" },
+    NoiceCmdlineIconFilter                     = { link = "MinimalBlue" },
+    NoiceCmdlinePopupBorderLua                 = { link = "MinimalBlue" },
+    NoiceCmdlineIconLua                        = { link = "MinimalBlue" },
     NoiceCmdlinePopupBorderSearch              = { link = "MinimalYellow" },
     NoiceCmdlineIconSearch                     = { link = "MinimalYellow" },
     -- Languages
@@ -569,7 +570,7 @@ else
   local const_fg = palette.orange
   local active = palette.gray5
   local active_blue = palette.blue
-  local string_fg = palette.green
+  local string_fg = palette.lavender
   local darker_fg = palette.gray6
   local diffadd = palette.green
   local diffdelete = palette.red
@@ -597,7 +598,7 @@ else
   local error = palette.red
   local warn = palette.orange
   local hint = palette.lack
-  local info = palette.green
+  local info = palette.lack
   local comment_fg = dim_comments_opt and dim_comment or comment
   local pmenu_bg = palette.gray9
   local float_bg = floatborder_opt and bg or pmenu_bg
@@ -658,7 +659,7 @@ else
     -- ModeMsg      { }, -- 'showmode' message (e.g., "-- INSERT -- ")
     -- MsgArea      { }, -- Area for messages and cmdline
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
-    MoreMsg = { fg = ansi.green, bold = 1 },
+    MoreMsg = { fg = ansi.blue, bold = 1 },
     NonText = { fg = palette.gray6 },
     Normal = { bg = bg, fg = fg },
     NormalFloat = { bg = float_bg },
@@ -668,7 +669,7 @@ else
     PmenuSel = { bg = palette.gray7 },
     PmenuSbar = { bg = palette.gray7 },
     PmenuThumb = { bg = palette.gray6 },
-    Question = { fg = ansi.green },
+    Question = { fg = ansi.blue },
     QuickFixLine = { bg = palette.gray9 },
     Search = { bg = palette.yellow, fg = fg },
     SpecialKey = { fg = ansi.cyan },
@@ -881,7 +882,7 @@ else
     --- Startify
     StartifyBracket = { fg = darker_fg },
     StartifyFile = { fg = ansi.black },
-    StartifySection = { fg = ansi.green },
+    StartifySection = { fg = ansi.blue },
     StartifySlash = { fg = palette.lack },
     StartifyPath = { fg = palette.lack },
     --- Statusline
@@ -951,7 +952,7 @@ else
     rainbowcol1 = { fg = ansi.yellow },
     rainbowcol2 = { fg = ansi.magenta },
     rainbowcol3 = { fg = ansi.blue },
-    rainbowcol4 = { fg = ansi.green },
+    rainbowcol4 = { fg = palette.lavender },
     rainbowcol5 = { fg = ansi.brightyellow },
     rainbowcol6 = { fg = ansi.red },
     rainbowcol7 = { fg = ansi.cyan },
@@ -968,15 +969,15 @@ else
     --- inlay hints
     LspInlayHint = { bg = virtual_bg, fg = virtual_fg },
     --- Noice
-    NoiceCmdlineIcon = { link = "MinimalBrightGreen" },
-    NoiceCmdlinePopupBorder = { link = "MinimalBrightGreen" },
-    NoiceConfirmBorder = { link = "MinimalBrightGreen" },
-    NoiceCmdlinePopupBorderCmdline = { link = "MinimalBrightGreen" },
-    NoiceCmdlineIconCmdline = { link = "MinimalBrightGreen" },
-    NoiceCmdlinePopupBorderFilter = { link = "MinimalBrightGreen" },
-    NoiceCmdlineIconFilter = { link = "MinimalBrightGreen" },
-    NoiceCmdlinePopupBorderLua = { link = "MinimalBrightGreen" },
-    NoiceCmdlineIconLua = { link = "MinimalBrightGreen" },
+    NoiceCmdlineIcon = { link = "MinimalBlue" },
+    NoiceCmdlinePopupBorder = { link = "MinimalBlue" },
+    NoiceConfirmBorder = { link = "MinimalBlue" },
+    NoiceCmdlinePopupBorderCmdline = { link = "MinimalBlue" },
+    NoiceCmdlineIconCmdline = { link = "MinimalBlue" },
+    NoiceCmdlinePopupBorderFilter = { link = "MinimalBlue" },
+    NoiceCmdlineIconFilter = { link = "MinimalBlue" },
+    NoiceCmdlinePopupBorderLua = { link = "MinimalBlue" },
+    NoiceCmdlineIconLua = { link = "MinimalBlue" },
     NoiceCmdlinePopupBorderSearch = { link = "MinimalYellow" },
     NoiceCmdlineIconSearch = { link = "MinimalYellow" },
     -- Languages
