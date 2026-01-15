@@ -139,6 +139,15 @@ if vim.o.background == "dark" then
     end
     local blink_menu = transparent_opt and { bg = bg, fg = fg } or { link = "Pmenu" }
     local blink_menu_border = transparent_opt and { bg = bg, fg = palette.gray4 } or { link = "FloatBorder" }
+    local todo_colors = {
+        FIX = error,
+        TODO = info,
+        HACK = warn,
+        WARN = warn,
+        PERF = palette.lack,
+        NOTE = hint,
+        TEST = palette.yellow,
+    }
     theme = {
         Comment = { fg = comment_fg },
         ColorColumn = { bg = special.whitespace },
@@ -443,6 +452,28 @@ if vim.o.background == "dark" then
         BlinkCmpMenuBorder = blink_menu_border,
         BlinkCmpDoc = { link = "NormalFloat" },
         BlinkCmpDocBorder = blink_menu_border,
+        --- todo-comments.nvim
+        TodoBgFIX = { bg = todo_colors.FIX, fg = palette.black },
+        TodoBgTODO = { bg = todo_colors.TODO, fg = palette.black },
+        TodoBgHACK = { bg = todo_colors.HACK, fg = palette.black },
+        TodoBgWARN = { bg = todo_colors.WARN, fg = palette.black },
+        TodoBgPERF = { bg = todo_colors.PERF, fg = palette.black },
+        TodoBgNOTE = { bg = todo_colors.NOTE, fg = palette.black },
+        TodoBgTEST = { bg = todo_colors.TEST, fg = palette.black },
+        TodoFgFIX = { fg = todo_colors.FIX },
+        TodoFgTODO = { fg = todo_colors.TODO },
+        TodoFgHACK = { fg = todo_colors.HACK },
+        TodoFgWARN = { fg = todo_colors.WARN },
+        TodoFgPERF = { fg = todo_colors.PERF },
+        TodoFgNOTE = { fg = todo_colors.NOTE },
+        TodoFgTEST = { fg = todo_colors.TEST },
+        TodoSignFIX = { fg = todo_colors.FIX },
+        TodoSignTODO = { fg = todo_colors.TODO },
+        TodoSignHACK = { fg = todo_colors.HACK },
+        TodoSignWARN = { fg = todo_colors.WARN },
+        TodoSignPERF = { fg = todo_colors.PERF },
+        TodoSignNOTE = { fg = todo_colors.NOTE },
+        TodoSignTEST = { fg = todo_colors.TEST },
         --- nvim-ts-rainbow
         rainbowcol1 = { fg = ansi.yellow },
         rainbowcol2 = { fg = ansi.magenta },
@@ -583,6 +614,15 @@ else
     end
     local blink_menu = transparent_opt and { bg = bg, fg = fg } or { link = "Pmenu" }
     local blink_menu_border = transparent_opt and { bg = bg, fg = palette.gray6 } or { link = "FloatBorder" }
+    local todo_colors = {
+        FIX = error,
+        TODO = info,
+        HACK = warn,
+        WARN = warn,
+        PERF = palette.lack,
+        NOTE = hint,
+        TEST = palette.yellow,
+    }
     theme = {
         Comment = { fg = comment_fg },
         ColorColumn = { bg = palette.gray9 },
@@ -881,6 +921,28 @@ else
         BlinkCmpMenuBorder = blink_menu_border,
         CmpDocumentation = { link = "NormalFloat" },
         CmpDocumentationBorder = blink_menu_border,
+        --- todo-comments.nvim
+        TodoBgFIX = { bg = todo_colors.FIX, fg = palette.black },
+        TodoBgTODO = { bg = todo_colors.TODO, fg = palette.black },
+        TodoBgHACK = { bg = todo_colors.HACK, fg = palette.black },
+        TodoBgWARN = { bg = todo_colors.WARN, fg = palette.black },
+        TodoBgPERF = { bg = todo_colors.PERF, fg = palette.black },
+        TodoBgNOTE = { bg = todo_colors.NOTE, fg = palette.black },
+        TodoBgTEST = { bg = todo_colors.TEST, fg = palette.black },
+        TodoFgFIX = { fg = todo_colors.FIX },
+        TodoFgTODO = { fg = todo_colors.TODO },
+        TodoFgHACK = { fg = todo_colors.HACK },
+        TodoFgWARN = { fg = todo_colors.WARN },
+        TodoFgPERF = { fg = todo_colors.PERF },
+        TodoFgNOTE = { fg = todo_colors.NOTE },
+        TodoFgTEST = { fg = todo_colors.TEST },
+        TodoSignFIX = { fg = todo_colors.FIX },
+        TodoSignTODO = { fg = todo_colors.TODO },
+        TodoSignHACK = { fg = todo_colors.HACK },
+        TodoSignWARN = { fg = todo_colors.WARN },
+        TodoSignPERF = { fg = todo_colors.PERF },
+        TodoSignNOTE = { fg = todo_colors.NOTE },
+        TodoSignTEST = { fg = todo_colors.TEST },
         --- nvim-ts-rainbow
         rainbowcol1 = { fg = ansi.yellow },
         rainbowcol2 = { fg = ansi.magenta },
