@@ -44,6 +44,14 @@ if dim_comments_opt == nil then
     dim_comments_opt = vim.g.alabaster_dim_comments
 end
 
+local bold_intro_opt = vim.g.minimal_bold_introductions
+if bold_intro_opt == nil then
+    bold_intro_opt = vim.g.minimal_bold_defs
+end
+if bold_intro_opt == nil then
+    bold_intro_opt = vim.g.alabaster_bold_defs
+end
+
 local transparent_opt = vim.g.minimal_transparent
 if transparent_opt == nil then
     transparent_opt = vim.g.alabaster_transparent
@@ -78,10 +86,10 @@ if vim.o.background == "dark" then
     -- colors
     local bg = special.main_background
     local fg = palette.gray8
-    local punct_fg = palette.lack
-    local def_fg = palette.blue
-    local const_fg = palette.orange
-    local active = palette.orange
+    local punct_fg = palette.blue
+    local def_fg = palette.lack
+    local const_fg = palette.gray6
+    local active = palette.gray7
     local string_fg = palette.green
     local darker_fg = palette.gray6
     local diffadd = palette.green
@@ -101,10 +109,10 @@ if vim.o.background == "dark" then
     local ansi = {
         black = palette.black,
         blue = palette.blue,
-        brightyellow = palette.orange,
+        brightyellow = palette.yellow,
         cyan = palette.lack,
         green = palette.green,
-        magenta = palette.orange,
+        magenta = palette.blue,
         red = palette.red,
         white = palette.gray8,
         yellow = palette.yellow,
@@ -198,7 +206,7 @@ if vim.o.background == "dark" then
 
         --- SYNTAX II: TS groups have their own definition, the below are defined to have somewhat working hl w/o treesitter
         Identifier = { fg = ansi.white },
-        Function = { fg = def_fg },
+        Function = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
         Statement = { fg = ansi.white },
         Conditional = { fg = ansi.white },
         Repeat = { fg = ansi.white },
@@ -212,8 +220,8 @@ if vim.o.background == "dark" then
         PreCondit = { fg = ansi.white },
         Type = { fg = ansi.white },
         StorageClass = { fg = ansi.white },
-        Structure = { fg = def_fg },
-        Typedef = { fg = def_fg },
+        Structure = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
+        Typedef = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
 
         Special = { fg = ansi.yellow },
         -- TODO better color than diffchange, try reddish
@@ -222,7 +230,7 @@ if vim.o.background == "dark" then
         -- Delimiter      { },
         SpecialComment = { bg = special.whitespace, fg = ansi.blue },
         debugPc = { bg = special.whitespace },
-        debugBreakpoint = { bg = palette.red, fg = fg },
+        debugBreakpoint = { bg = palette.gray4, fg = fg },
         helpHyperTextJump = { fg = ansi.magenta },
         helpSectionDelim = { fg = ansi.magenta },
         helpExample = { fg = ansi.cyan },
@@ -275,7 +283,7 @@ if vim.o.background == "dark" then
         TSMethod = { fg = ansi.white },
         TSNamespace = { fg = ansi.white },
         TSNone = { fg = const_fg },
-        TSParameter = { fg = ansi.white },
+        TSParameter = { fg = ansi.white, bold = bold_intro_opt and 1 or nil },
         TSParameterReference = { fg = ansi.white },
         TSProperty = { fg = ansi.white },
         TSPunctDelimiter = { fg = punct_fg },
@@ -312,7 +320,8 @@ if vim.o.background == "dark" then
         ["@module"] = { fg = ansi.white },
         ["@namespace"] = { fg = ansi.white },
         ["@none"] = { fg = const_fg },
-        ["@parameter"] = { fg = ansi.white },
+        ["@parameter"] = { fg = ansi.white, bold = bold_intro_opt and 1 or nil },
+        ["@variable.parameter"] = { fg = ansi.white, bold = bold_intro_opt and 1 or nil },
         ["@parameter.reference"] = { fg = ansi.white },
         ["@property"] = { fg = ansi.white },
         ["@punctuation.delimiter"] = { fg = punct_fg },
@@ -336,7 +345,7 @@ if vim.o.background == "dark" then
         --- Theme specific
         ["@MinimalBase"] = { fg = ansi.white },
         ["@MinimalConstant"] = { fg = const_fg },
-        ["@MinimalDefinition"] = { fg = def_fg },
+        ["@MinimalDefinition"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
         ["@MinimalPunctuation"] = { fg = punct_fg },
         ["@MinimalPunct"] = { link = "@MinimalPunctuation" },
         ["@MinimalString"] = { fg = string_fg },
@@ -347,7 +356,7 @@ if vim.o.background == "dark" then
         GitSignsDelete = { fg = diffdelete },
         --- Telescope
         TelescopeBorder = { fg = palette.gray3 },
-        TelescopeMatching = { fg = palette.orange },
+        TelescopeMatching = { fg = palette.gray6, bold = true },
         TelescopeMultiSelection = { fg = ansi.magenta },
         TelescopePromptPrefix = { fg = ansi.blue },
         TelescopeSelectionCaret = { fg = mistake.fg },
@@ -356,7 +365,7 @@ if vim.o.background == "dark" then
         --- fzf-lua
         FzfLuaBorder = { fg = palette.gray3 },
         --- mini.nvim
-        MiniPickMatchCurrent  = { fg = palette.orange },
+        MiniPickMatchCurrent  = { fg = palette.gray6, bold = true },
         --- Neogit
         NeogitPopupActionDisabled = { fg = darker_fg },
         NeogitPopupActionKey = { fg = ansi.magenta },
@@ -444,22 +453,32 @@ if vim.o.background == "dark" then
         asmDirective = { fg = dim_comment },
         nasmLabel = { link = "@MinimalDefinition" },
 
-        ["@lsp.mod.declaration"] = { fg = fg },
+        ["@lsp.mod.declaration"] = { fg = fg, bold = bold_intro_opt and 1 or nil },
         ["@lsp.type.enumMember"] = { fg = fg },
         ["@lsp.type.function"] = { fg = fg },
         ["@lsp.type.method"] = { fg = fg },
         ["@lsp.type.selfKeyword"] = { fg = fg },
-        ["@lsp.typemod.class.declaration"] = { fg = def_fg },
-        ["@lsp.typemod.class.definition"] = { fg = def_fg },
-        ["@lsp.typemod.enum.declaration"] = { fg = def_fg },
+        ["@lsp.typemod.class.declaration"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.typemod.class.definition"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.typemod.enum.declaration"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
         ["@lsp.typemod.enumMember.defaultLibrary"] = { fg = fg },
-        ["@lsp.typemod.function.declaration"] = { fg = def_fg },
-        ["@lsp.typemod.function.definition"] = { fg = def_fg },
-        ["@lsp.typemod.macro.declaration"] = { fg = def_fg },
-        ["@lsp.typemod.method.declaration"] = { fg = def_fg },
+        ["@lsp.typemod.function.declaration"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.typemod.function.definition"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.typemod.macro.declaration"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.typemod.method.declaration"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
         ["@lsp.typemod.selfKeyword"] = { fg = fg },
-        ["@lsp.typemod.struct.declaration"] = { fg = def_fg },
-        ["@lsp.typemod.type.declaration"] = { fg = def_fg },
+        ["@lsp.typemod.struct.declaration"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.typemod.type.declaration"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.type.parameter"] = { fg = fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.typemod.parameter.declaration"] = { fg = fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.typemod.parameter.definition"] = { fg = fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.typemod.variable.declaration"] = { fg = fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.typemod.variable.definition"] = { fg = fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.type.parameter"] = { fg = fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.typemod.parameter.declaration"] = { fg = fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.typemod.parameter.definition"] = { fg = fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.typemod.variable.declaration"] = { fg = fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.typemod.variable.definition"] = { fg = fg, bold = bold_intro_opt and 1 or nil },
     }
 else
     -- terminal colors
@@ -486,7 +505,7 @@ else
     local punct_fg = palette.lack
     local def_fg = palette.blue
     local const_fg = palette.orange
-    local active = palette.orange
+    local active = palette.gray5
     local active_blue = palette.blue
     local string_fg = palette.green
     local darker_fg = palette.gray6
@@ -503,10 +522,10 @@ else
     local ansi = {
         black = palette.black,
         blue = palette.blue,
-        brightyellow = palette.orange,
+        brightyellow = palette.yellow,
         cyan = palette.lack,
         green = palette.green,
-        magenta = palette.orange,
+        magenta = palette.blue,
         red = palette.red,
         white = palette.luster,
         yellow = palette.yellow,
@@ -604,7 +623,7 @@ else
 
         --- SYNTAX II: TS groups have their own definition, the below are defined to have somewhat working hl w/o treesitter
         Identifier = { fg = ansi.black },
-        Function = { fg = def_fg },
+        Function = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
         Statement = { fg = ansi.black },
         Conditional = { fg = ansi.black },
         Repeat = { fg = ansi.black },
@@ -618,17 +637,17 @@ else
         PreCondit = { fg = ansi.black },
         Type = { fg = ansi.black },
         StorageClass = { fg = ansi.black },
-        Structure = { fg = def_fg },
-        Typedef = { fg = def_fg },
+        Structure = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
+        Typedef = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
 
         Special = { fg = ansi.yellow },
         -- TODO better color than diffchange, try reddish
         -- SpecialChar = { fg = diffchange }, --  special character in a constant
         -- Tag            { }, --    you can use CTRL-] on this
         -- Delimiter      { },
-        SpecialComment = { bg = palette.yellow, fg = ansi.blue },
+        SpecialComment = { bg = palette.gray9, fg = ansi.blue },
         debugPc = { bg = palette.gray8 },
-        debugBreakpoint = { bg = palette.orange },
+        debugBreakpoint = { bg = palette.gray6, fg = fg },
         helpHyperTextJump = { fg = ansi.magenta },
         helpSectionDelim = { fg = ansi.magenta },
         helpExample = { fg = ansi.cyan },
@@ -644,7 +663,7 @@ else
 
         Error = { bg = mistake.bg, fg = mistake.fg },
 
-        Todo = { bg = palette.yellow, fg = ansi.blue },
+        Todo = { bg = palette.gray9, fg = ansi.blue, bold = true },
 
         --- Diagnostic
         LspReferenceText = { bg = palette.gray9 },
@@ -681,7 +700,7 @@ else
         TSMethod = { fg = ansi.black },
         TSNamespace = { fg = ansi.black },
         TSNone = { fg = const_fg },
-        TSParameter = { fg = ansi.black },
+        TSParameter = { fg = ansi.black, bold = bold_intro_opt and 1 or nil },
         TSParameterReference = { fg = ansi.black },
         TSProperty = { fg = ansi.black },
         TSPunctDelimiter = { fg = punct_fg },
@@ -718,7 +737,8 @@ else
         ["@module"] = { fg = ansi.black },
         ["@namespace"] = { fg = ansi.black },
         ["@none"] = { fg = const_fg },
-        ["@parameter"] = { fg = ansi.black },
+        ["@parameter"] = { fg = ansi.black, bold = bold_intro_opt and 1 or nil },
+        ["@variable.parameter"] = { fg = ansi.black, bold = bold_intro_opt and 1 or nil },
         ["@parameter.reference"] = { fg = ansi.black },
         ["@property"] = { fg = ansi.black },
         ["@punctuation.delimiter"] = { fg = punct_fg },
@@ -742,7 +762,7 @@ else
         --- Theme specific
         ["@MinimalBase"] = { fg = ansi.black },
         ["@MinimalConstant"] = { fg = const_fg },
-        ["@MinimalDefinition"] = { fg = def_fg },
+        ["@MinimalDefinition"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
         ["@MinimalPunctuation"] = { fg = punct_fg },
         ["@MinimalPunct"] = { link = "@MinimalPunctuation" },
         ["@MinimalString"] = { fg = string_fg },
@@ -847,22 +867,22 @@ else
         --- asm
         asmDirective = { fg = dim_comment },
         nasmLabel = { link = "@MinimalDefinition" },
-        ["@lsp.mod.declaration"] = { fg = fg },
+        ["@lsp.mod.declaration"] = { fg = fg, bold = bold_intro_opt and 1 or nil },
         ["@lsp.type.enumMember"] = { fg = fg },
         ["@lsp.type.function"] = { fg = fg },
         ["@lsp.type.method"] = { fg = fg },
         ["@lsp.type.selfKeyword"] = { fg = fg },
-        ["@lsp.typemod.class.declaration"] = { fg = def_fg },
-        ["@lsp.typemod.class.definition"] = { fg = def_fg },
-        ["@lsp.typemod.enum.declaration"] = { fg = def_fg },
+        ["@lsp.typemod.class.declaration"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.typemod.class.definition"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.typemod.enum.declaration"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
         ["@lsp.typemod.enumMember.defaultLibrary"] = { fg = fg },
-        ["@lsp.typemod.function.declaration"] = { fg = def_fg },
-        ["@lsp.typemod.function.definition"] = { fg = def_fg },
-        ["@lsp.typemod.macro.declaration"] = { fg = def_fg },
-        ["@lsp.typemod.method.declaration"] = { fg = def_fg },
+        ["@lsp.typemod.function.declaration"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.typemod.function.definition"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.typemod.macro.declaration"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.typemod.method.declaration"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
         ["@lsp.typemod.selfKeyword"] = { fg = fg },
-        ["@lsp.typemod.struct.declaration"] = { fg = def_fg },
-        ["@lsp.typemod.type.declaration"] = { fg = def_fg },
+        ["@lsp.typemod.struct.declaration"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
+        ["@lsp.typemod.type.declaration"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
     }
 end
 

@@ -41,6 +41,15 @@
 (macro_definition
   name: (identifier) @MinimalDefinition)
 
+(parameter
+  pattern: (identifier_pattern (identifier) @MinimalDefinition))
+
+(self_parameter
+  "self" @MinimalDefinition)
+
+(let_declaration
+  pattern: (identifier_pattern (identifier) @MinimalDefinition))
+
 (for_expression
   "in" @MinimalPunctuation)
 (type_arguments
