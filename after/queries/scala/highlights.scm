@@ -2,19 +2,19 @@
 ;; extends
 
 (package_clause
-  (package_identifier) @AlabasterDefinition)
+  (package_identifier) @MinimalDefinition)
 
 (function_definition
-  name: (identifier) @AlabasterDefinition)
+  name: (identifier) @MinimalDefinition)
 
 (function_declaration
-  name: (identifier) @AlabasterDefinition)
+  name: (identifier) @MinimalDefinition)
 
 (class_definition
-  name: (identifier) @AlabasterDefinition)
+  name: (identifier) @MinimalDefinition)
 
 (object_definition
-  name: (identifier) @AlabasterDefinition)
+  name: (identifier) @MinimalDefinition)
 
 (trait_definition
-  name: (identifier) @AlabasterDefinition)
+  name: (identifier) @MinimalDefinition)

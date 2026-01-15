@@ -2,15 +2,15 @@
 ;; extends
 
 (function_definition
-  name: (word) @AlabasterDefinition)
+  name: (word) @MinimalDefinition)
 
 (command
   name: (word) @function.builtin
   (#match? @function.builtin "^set$")
   argument: (word) @parameter
   (#any-of? @parameter "-g" "--global" "-U" "--universal" "-x" "--export")
-  argument: (word) @AlabasterDefinition
+  argument: (word) @MinimalDefinition
   argument: (_))
 
-((program . (comment) @AlabasterHashbang)
- (#match? @AlabasterHashbang "^#!/"))
+((program . (comment) @MinimalHashbang)
+ (#match? @MinimalHashbang "^#!/"))

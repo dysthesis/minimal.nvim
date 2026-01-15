@@ -2,12 +2,12 @@
 ;; extends
 
 (function_definition
-  name: (identifier) @AlabasterDefinition)
+  name: (identifier) @MinimalDefinition)
 (class_definition
-  name: (identifier) @AlabasterDefinition)
+  name: (identifier) @MinimalDefinition)
 
-((module . (comment) @AlabasterHashbang)
- (#match? @AlabasterHashbang "^#!/"))
+((module . (comment) @MinimalHashbang)
+ (#match? @MinimalHashbang "^#!/"))
 
 (decorator
-  (identifier) @AlabasterBase)
+  (identifier) @MinimalBase)

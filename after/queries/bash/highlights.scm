@@ -2,7 +2,7 @@
 ;; extends
 
 (function_definition
-  name: (word) @AlabasterDefinition)
+  name: (word) @MinimalDefinition)
 
-((program . (comment) @AlabasterHashbang)
- (#match? @AlabasterHashbang "^#!/"))
+((program . (comment) @MinimalHashbang)
+ (#match? @MinimalHashbang "^#!/"))

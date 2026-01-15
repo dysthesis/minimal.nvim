@@ -2,22 +2,22 @@
 ;; extends
 
 ; (fn
-;   name: (symbol) @AlabasterDefinition)
+;   name: (symbol) @MinimalDefinition)
 ;   ; TODO: add this when https://github.com/nvim-treesitter/nvim-treesitter/issues/1788 is fixed
-;   ; docstring: (string)? @AlabasterComment
+;   ; docstring: (string)? @MinimalComment
 ; (fn
-;   name: (multi_symbol (symbol) @AlabasterDefinition))
+;   name: (multi_symbol (symbol) @MinimalDefinition))
 
 ; (global
 ;   (binding
-;     (symbol) @AlabasterDefinition))
+;     (symbol) @MinimalDefinition))
 
 (list
   (symbol) @function.macro
   (#match? @function.macro "^macro$")
-  (symbol) @AlabasterDefinition)
+  (symbol) @MinimalDefinition)
 
 
-; ((program . (hashfn) @AlabasterHashbang)
-;  (#match? @AlabasterHashbang "^#!/")
+; ((program . (hashfn) @MinimalHashbang)
+;  (#match? @MinimalHashbang "^#!/")
 ;  (#set! "priority" 101))

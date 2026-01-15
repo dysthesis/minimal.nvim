@@ -2,10 +2,10 @@
 ;; extends
 
 (class_declaration
-  name: (identifier) @AlabasterDefinition)
+  name: (identifier) @MinimalDefinition)
 (constructor_declaration
-  name: (identifier) @AlabasterDefinition)
+  name: (identifier) @MinimalDefinition)
 (method_declaration
-  name: (identifier) @AlabasterDefinition)
+  name: (identifier) @MinimalDefinition)
 (package_declaration
-  (scoped_identifier) @AlabasterDefinition)
+  (scoped_identifier) @MinimalDefinition)

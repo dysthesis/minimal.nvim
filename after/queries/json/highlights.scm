@@ -3,4 +3,4 @@
 
 (object
   (pair
-    key: (string) @AlabasterString))
+    key: (string) @MinimalString))

@@ -3,27 +3,27 @@
 
 ;; methods
 (method
-  name: (identifier) @AlabasterDefinition)
+  name: (identifier) @MinimalDefinition)
 
 ;; singleton methods (def self.method)
 (singleton_method
-  name: (identifier) @AlabasterDefinition)
+  name: (identifier) @MinimalDefinition)
 
 ;; simple classes
 (class
-  name: (constant) @AlabasterDefinition)
+  name: (constant) @MinimalDefinition)
 
 ;; modules
 (module
-  name: (constant) @AlabasterDefinition)
+  name: (constant) @MinimalDefinition)
 
 ;; all constants in scope_resolution chains (handles any nesting depth)
 (scope_resolution
-  name: (constant) @AlabasterDefinition)
+  name: (constant) @MinimalDefinition)
 (scope_resolution
-  scope: (constant) @AlabasterDefinition)
+  scope: (constant) @MinimalDefinition)
 
-((simple_symbol) @AlabasterConstant)
-((hash_key_symbol) @AlabasterConstant)
+((simple_symbol) @MinimalConstant)
+((hash_key_symbol) @MinimalConstant)
 
-((instance_variable) @AlabasterPunct)
+((instance_variable) @MinimalPunctuation)

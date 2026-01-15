@@ -2,7 +2,7 @@
 ;; extends
 
 (function_declaration
-  name: (identifier) @AlabasterDefinition)
+  name: (identifier) @MinimalDefinition)
 
 (type_declaration
-  (identifier) @AlabasterDefinition)
+  (identifier) @MinimalDefinition)

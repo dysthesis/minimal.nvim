@@ -2,6 +2,6 @@
 ;; extends
 
 (function_declaration
-  name: (identifier) @AlabasterDefinition)
+  name: (identifier) @MinimalDefinition)
 
-(undefined) @AlabasterConstant
+(undefined) @MinimalConstant

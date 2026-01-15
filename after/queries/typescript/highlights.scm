@@ -2,19 +2,19 @@
 ;; extends
 
 (interface_declaration
-  name: (type_identifier) @AlabasterDefinition)
+  name: (type_identifier) @MinimalDefinition)
 
 (method_definition
-  name: (property_identifier) @AlabasterDefinition)
+  name: (property_identifier) @MinimalDefinition)
 
 (function_declaration
-  name: (identifier) @AlabasterDefinition)
+  name: (identifier) @MinimalDefinition)
 
 (variable_declarator
-  name: (identifier) @AlabasterDefinition
+  name: (identifier) @MinimalDefinition
   value: (arrow_function))
 
 (type_alias_declaration
-  name: (type_identifier) @AlabasterDefinition)
+  name: (type_identifier) @MinimalDefinition)
 
-(undefined) @AlabasterConstant
+(undefined) @MinimalConstant

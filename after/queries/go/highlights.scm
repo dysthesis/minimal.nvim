@@ -2,14 +2,14 @@
 ;; extends
 
 (package_clause
-  (package_identifier) @AlabasterDefinition)
+  (package_identifier) @MinimalDefinition)
 
 (const_declaration
   (const_spec
-    name: (identifier) @AlabasterDefinition))
+    name: (identifier) @MinimalDefinition))
 
 (function_declaration
-  name: (identifier) @AlabasterDefinition)
+  name: (identifier) @MinimalDefinition)
 
 (method_declaration
-  name: (field_identifier) @AlabasterDefinition)
+  name: (field_identifier) @MinimalDefinition)
