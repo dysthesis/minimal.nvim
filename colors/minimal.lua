@@ -263,7 +263,7 @@ if vim.o.background == "dark" then
         DiagnosticVirtualTextError = { bg = special.whitespace, fg = error },
         DiagnosticVirtualTextWarn = { bg = special.whitespace, fg = warn },
         DiagnosticVirtualTextHint = { bg = special.whitespace, fg = hint },
-        DiagnosticVirtualTextInfo = { bg = special.whitespace, fg = info },
+        DiagnosticVirtualTextInfo = { bg = special.whitespace, fg = gray6 },
 
         --- Treesitter
         TSAttribute = {},
