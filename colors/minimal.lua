@@ -86,7 +86,7 @@ if vim.o.background == "dark" then
     -- colors
     local bg = special.main_background
     local fg = palette.gray8
-    local punct_fg = palette.blue
+    local punct_fg = palette.gray6
     local def_fg = palette.lack
     local const_fg = palette.gray6
     local active = palette.gray7
@@ -203,6 +203,7 @@ if vim.o.background == "dark" then
         Boolean = { fg = const_fg },
         Float = { fg = const_fg },
         Operator = { fg = punct_fg },
+        Delimiter = { fg = punct_fg },
 
         --- SYNTAX II: TS groups have their own definition, the below are defined to have somewhat working hl w/o treesitter
         Identifier = { fg = ansi.white },
@@ -267,7 +268,7 @@ if vim.o.background == "dark" then
 
         --- Treesitter
         TSAttribute = {},
-        TSConstructor = { fg = ansi.white },
+        TSConstructor = { fg = punct_fg },
         TSConditional = { fg = ansi.white },
         TSConstBuiltin = { fg = const_fg },
         TSConstMacro = { fg = ansi.white },
@@ -287,7 +288,7 @@ if vim.o.background == "dark" then
         TSParameterReference = { fg = ansi.white },
         TSProperty = { fg = ansi.white },
         TSPunctDelimiter = { fg = punct_fg },
-        TSPunctBracket = { fg = palette.gray7 },
+        TSPunctBracket = { fg = punct_fg },
         TSPunctSpecial = { fg = punct_fg },
         TSRepeat = { fg = ansi.white },
         TSString = { fg = string_fg },
@@ -302,7 +303,7 @@ if vim.o.background == "dark" then
         TSTagDelimiter = { fg = punct_fg },
         TSText = { fg = ansi.white },
         ["@attribute"] = {},
-        ["@constructor"] = { fg = ansi.white },
+        ["@constructor"] = { fg = punct_fg },
         ["@conditional"] = { fg = ansi.white },
         ["@constant.builtin"] = { fg = const_fg },
         ["@constant.macro"] = { fg = ansi.white },
@@ -325,7 +326,7 @@ if vim.o.background == "dark" then
         ["@parameter.reference"] = { fg = ansi.white },
         ["@property"] = { fg = ansi.white },
         ["@punctuation.delimiter"] = { fg = punct_fg },
-        ["@punctuation.bracket"] = { fg = palette.gray7 },
+        ["@punctuation.bracket"] = { fg = punct_fg },
         ["@punctuation.special"] = { fg = punct_fg },
         ["@repeat"] = { fg = ansi.white },
         ["@string"] = { fg = string_fg },
@@ -502,7 +503,7 @@ else
     -- colors
     local bg = palette.luster
     local fg = palette.black
-    local punct_fg = palette.lack
+    local punct_fg = palette.gray6
     local def_fg = palette.blue
     local const_fg = palette.orange
     local active = palette.gray5
@@ -620,6 +621,7 @@ else
         Boolean = { fg = const_fg },
         Float = { fg = const_fg },
         Operator = { fg = punct_fg },
+        Delimiter = { fg = punct_fg },
 
         --- SYNTAX II: TS groups have their own definition, the below are defined to have somewhat working hl w/o treesitter
         Identifier = { fg = ansi.black },
@@ -684,7 +686,7 @@ else
 
         --- Treesitter
         TSAttribute = {},
-        TSConstructor = { fg = ansi.black },
+        TSConstructor = { fg = punct_fg },
         TSConditional = { fg = ansi.black },
         TSConstBuiltin = { fg = const_fg },
         TSConstMacro = { fg = ansi.black },
@@ -720,7 +722,7 @@ else
         TSText = { fg = ansi.black },
 
         ["@attribute"] = {},
-        ["@constructor"] = { fg = ansi.black },
+        ["@constructor"] = { fg = punct_fg },
         ["@conditional"] = { fg = ansi.black },
         ["@constant.builtin"] = { fg = const_fg },
         ["@constant.macro"] = { fg = ansi.black },
