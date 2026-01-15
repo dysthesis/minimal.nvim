@@ -429,6 +429,8 @@ if vim.o.background == "dark" then
         CmpItemMenuDefault = { fg = ansi.magenta },
         BlinkCmpMenu = blink_menu,
         BlinkCmpMenuBorder = blink_menu_border,
+        CmpDocumentation = { link = "NormalFloat" },
+        CmpDocumentationBorder = blink_menu_border,
         --- nvim-ts-rainbow
         rainbowcol1 = { fg = ansi.yellow },
         rainbowcol2 = { fg = ansi.magenta },
@@ -857,6 +859,8 @@ else
         CmpItemMenuDefault = { fg = ansi.magenta },
         BlinkCmpMenu = blink_menu,
         BlinkCmpMenuBorder = blink_menu_border,
+        CmpDocumentation = { link = "NormalFloat" },
+        CmpDocumentationBorder = blink_menu_border,
         --- nvim-ts-rainbow
         rainbowcol1 = { fg = ansi.yellow },
         rainbowcol2 = { fg = ansi.magenta },
