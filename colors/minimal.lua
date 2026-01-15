@@ -271,6 +271,14 @@ if vim.o.background == "dark" then
         DiagnosticVirtualTextWarn = { bg = virtual_bg, fg = warn },
         DiagnosticVirtualTextHint = { bg = virtual_bg, fg = virtual_fg },
         DiagnosticVirtualTextInfo = { bg = virtual_bg, fg = virtual_fg },
+        DiagnosticUnderlineError = { underline = 1, sp = error },
+        DiagnosticUnderlineWarn = { underline = 1, sp = warn },
+        DiagnosticUnderlineHint = { underline = 1, sp = hint },
+        DiagnosticUnderlineInfo = { underline = 1, sp = info },
+        LspDiagnosticsUnderlineError = { link = "DiagnosticUnderlineError" },
+        LspDiagnosticsUnderlineWarning = { link = "DiagnosticUnderlineWarn" },
+        LspDiagnosticsUnderlineHint = { link = "DiagnosticUnderlineHint" },
+        LspDiagnosticsUnderlineInformation = { link = "DiagnosticUnderlineInfo" },
 
         --- Treesitter
         TSAttribute = {},
@@ -373,6 +381,10 @@ if vim.o.background == "dark" then
         FzfLuaBorder = { fg = palette.gray3 },
         --- mini.nvim
         MiniPickMatchCurrent  = { fg = palette.gray6, bold = true },
+        MiniPickPrompt = { fg = palette.blue },
+        MiniPickPrompt = { fg = palette.lack },
+        MiniPickPromptCaret = { fg = palette.lack },
+        MiniPickPromptPrefix = { fg = palette.lack },
         --- Neogit
         NeogitPopupActionDisabled = { fg = darker_fg },
         NeogitPopupActionKey = { fg = ansi.magenta },
@@ -429,8 +441,8 @@ if vim.o.background == "dark" then
         CmpItemMenuDefault = { fg = ansi.magenta },
         BlinkCmpMenu = blink_menu,
         BlinkCmpMenuBorder = blink_menu_border,
-        CmpDocumentation = { link = "NormalFloat" },
-        CmpDocumentationBorder = blink_menu_border,
+        BlinkCmpDoc = { link = "NormalFloat" },
+        BlinkCmpDocBorder = blink_menu_border,
         --- nvim-ts-rainbow
         rainbowcol1 = { fg = ansi.yellow },
         rainbowcol2 = { fg = ansi.magenta },
@@ -703,6 +715,14 @@ else
         DiagnosticVirtualTextWarn = { bg = virtual_bg, fg = warn },
         DiagnosticVirtualTextHint = { bg = virtual_bg, fg = virtual_fg },
         DiagnosticVirtualTextInfo = { bg = virtual_bg, fg = virtual_fg },
+        DiagnosticUnderlineError = { underline = 1, sp = error },
+        DiagnosticUnderlineWarn = { underline = 1, sp = warn },
+        DiagnosticUnderlineHint = { underline = 1, sp = hint },
+        DiagnosticUnderlineInfo = { underline = 1, sp = info },
+        LspDiagnosticsUnderlineError = { link = "DiagnosticUnderlineError" },
+        LspDiagnosticsUnderlineWarning = { link = "DiagnosticUnderlineWarn" },
+        LspDiagnosticsUnderlineHint = { link = "DiagnosticUnderlineHint" },
+        LspDiagnosticsUnderlineInformation = { link = "DiagnosticUnderlineInfo" },
 
         --- Treesitter
         TSAttribute = {},
