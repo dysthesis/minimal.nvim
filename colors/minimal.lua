@@ -394,6 +394,7 @@ if vim.o.background == "dark" then
         MiniPickPrompt = { fg = palette.lack },
         MiniPickPromptCaret = { fg = palette.lack },
         MiniPickPromptPrefix = { fg = palette.lack },
+        MiniPickBorder = blink_menu_border,
         -- mini.clue
         MiniClueDescGroup = { fg = palette.lack },
         MiniClueSeparator = { fg = palette.lack },
