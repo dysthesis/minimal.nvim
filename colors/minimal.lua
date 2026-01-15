@@ -394,6 +394,9 @@ if vim.o.background == "dark" then
         MiniPickPrompt = { fg = palette.lack },
         MiniPickPromptCaret = { fg = palette.lack },
         MiniPickPromptPrefix = { fg = palette.lack },
+        -- mini.clue
+        MiniClueDescGroup = { fg = palette.lack },
+        MiniClueSeparator = { fg = palette.lack },
         --- Neogit
         NeogitPopupActionDisabled = { fg = darker_fg },
         NeogitPopupActionKey = { fg = ansi.magenta },
