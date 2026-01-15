@@ -137,6 +137,8 @@ if vim.o.background == "dark" then
                 fg = float_bg,
             }
     end
+    local blink_menu = transparent_opt and { bg = bg, fg = fg } or { link = "Pmenu" }
+    local blink_menu_border = transparent_opt and { bg = bg, fg = palette.gray4 } or { link = "FloatBorder" }
     theme = {
         Comment = { fg = comment_fg },
         ColorColumn = { bg = special.whitespace },
@@ -425,6 +427,8 @@ if vim.o.background == "dark" then
         healthSuccess = { fg = ansi.green, bg = bg },
         --- cmp
         CmpItemMenuDefault = { fg = ansi.magenta },
+        BlinkCmpMenu = blink_menu,
+        BlinkCmpMenuBorder = blink_menu_border,
         --- nvim-ts-rainbow
         rainbowcol1 = { fg = ansi.yellow },
         rainbowcol2 = { fg = ansi.magenta },
@@ -563,6 +567,8 @@ else
                 fg = float_bg,
             }
     end
+    local blink_menu = transparent_opt and { bg = bg, fg = fg } or { link = "Pmenu" }
+    local blink_menu_border = transparent_opt and { bg = bg, fg = palette.gray6 } or { link = "FloatBorder" }
     theme = {
         Comment = { fg = comment_fg },
         ColorColumn = { bg = palette.gray9 },
@@ -849,6 +855,8 @@ else
         healthSuccess = { fg = ansi.green, bg = bg },
         --- cmp
         CmpItemMenuDefault = { fg = ansi.magenta },
+        BlinkCmpMenu = blink_menu,
+        BlinkCmpMenuBorder = blink_menu_border,
         --- nvim-ts-rainbow
         rainbowcol1 = { fg = ansi.yellow },
         rainbowcol2 = { fg = ansi.magenta },
