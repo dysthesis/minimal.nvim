@@ -98,6 +98,8 @@ if vim.o.background == "dark" then
     local statusline = special.statusline
     local comment = palette.yellow
     local dim_comment = special.comment
+    local virtual_fg = palette.gray6
+    local virtual_bg = special.whitespace
     local mistake = {
         fg = palette.red,
         bg = special.exception,
@@ -128,6 +130,7 @@ if vim.o.background == "dark" then
     if transparent_opt then
         bg = palette.none
         float_bg = palette.none
+        virtual_bg = palette.none
         floatborder = floatborder_opt and { bg = bg, fg = palette.gray4 }
             or {
                 bg = float_bg,
@@ -261,10 +264,10 @@ if vim.o.background == "dark" then
         DiagnosticWarn = { fg = warn },
         DiagnosticHint = { fg = hint },
         DiagnosticInfo = { fg = info },
-        DiagnosticVirtualTextError = { bg = special.whitespace, fg = error },
-        DiagnosticVirtualTextWarn = { bg = special.whitespace, fg = warn },
-        DiagnosticVirtualTextHint = { bg = special.whitespace, fg = gray6 },
-        DiagnosticVirtualTextInfo = { bg = special.whitespace, fg = gray6 },
+        DiagnosticVirtualTextError = { bg = virtual_bg, fg = error },
+        DiagnosticVirtualTextWarn = { bg = virtual_bg, fg = warn },
+        DiagnosticVirtualTextHint = { bg = virtual_bg, fg = virtual_fg },
+        DiagnosticVirtualTextInfo = { bg = virtual_bg, fg = virtual_fg },
 
         --- Treesitter
         TSAttribute = {},
@@ -436,7 +439,11 @@ if vim.o.background == "dark" then
         dbui_help = { fg = dim_comment },
         dbui_connection_source = { fg = dim_comment },
         --- nvim-dap-virtual-text
-        NvimDapVirtualText = { bg = special.whitespace, fg = ansi.cyan },
+        NvimDapVirtualText = { bg = virtual_bg, fg = virtual_fg },
+        --- gitsigns blame
+        GitSignsCurrentLineBlame = { fg = virtual_fg },
+        --- inlay hints
+        LspInlayHint = { bg = virtual_bg, fg = virtual_fg },
         --- Noice
         NoiceCmdlineIcon = { link = "MinimalDarkGreen" },
         NoiceCmdlinePopupBorder = { link = "MinimalDarkGreen" },
@@ -516,6 +523,8 @@ else
     local statusline = palette.gray9
     local comment = palette.yellow
     local dim_comment = palette.gray6
+    local virtual_fg = palette.gray6
+    local virtual_bg = palette.gray9
     local mistake = {
         fg = palette.red,
         bg = palette.gray9,
@@ -546,6 +555,7 @@ else
     if transparent_opt then
         bg = palette.none
         float_bg = palette.none
+        virtual_bg = palette.none
         floatborder = floatborder_opt and { bg = bg, fg = palette.gray6 }
             or {
                 bg = float_bg,
@@ -679,10 +689,10 @@ else
         DiagnosticWarn = { fg = warn },
         DiagnosticHint = { fg = hint },
         DiagnosticInfo = { fg = info },
-        DiagnosticVirtualTextError = { bg = palette.gray9, fg = error },
-        DiagnosticVirtualTextWarn = { bg = palette.gray9, fg = warn },
-        DiagnosticVirtualTextHint = { fg = hint, bg = palette.gray9 },
-        DiagnosticVirtualTextInfo = { bg = palette.gray9, fg = info },
+        DiagnosticVirtualTextError = { bg = virtual_bg, fg = error },
+        DiagnosticVirtualTextWarn = { bg = virtual_bg, fg = warn },
+        DiagnosticVirtualTextHint = { bg = virtual_bg, fg = virtual_fg },
+        DiagnosticVirtualTextInfo = { bg = virtual_bg, fg = virtual_fg },
 
         --- Treesitter
         TSAttribute = {},
@@ -852,7 +862,11 @@ else
         dbui_help = { fg = dim_comment },
         dbui_connection_source = { fg = dim_comment },
         --- nvim-dap-virtual-text
-        NvimDapVirtualText = { bg = palette.gray9, fg = ansi.cyan },
+        NvimDapVirtualText = { bg = virtual_bg, fg = virtual_fg },
+        --- gitsigns blame
+        GitSignsCurrentLineBlame = { fg = virtual_fg },
+        --- inlay hints
+        LspInlayHint = { bg = virtual_bg, fg = virtual_fg },
         --- Noice
         NoiceCmdlineIcon = { link = "MinimalBrightGreen" },
         NoiceCmdlinePopupBorder = { link = "MinimalBrightGreen" },
