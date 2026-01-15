@@ -93,8 +93,8 @@ if vim.o.background == "dark" then
     local string_fg = palette.green
     local darker_fg = palette.gray6
     local diffadd = palette.green
-    local diffdelete = palette.red
-    local diffchange = palette.orange
+    local diffdelete = palette.orange
+    local diffchange = palette.gray6
     local statusline = special.statusline
     local comment = palette.yellow
     local dim_comment = special.comment
