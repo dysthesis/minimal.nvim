@@ -395,6 +395,7 @@ if vim.o.background == "dark" then
     MiniPickPromptCaret                        = { fg = palette.lack },
     MiniPickPromptPrefix                       = { fg = palette.lack },
     MiniPickBorder                             = menu_border,
+    MiniPickBorderBusy                         = { link = "MiniPickBorder" },
     -- mini.clue
     MiniClueDescGroup                          = { fg = palette.lack },
     MiniClueSeparator                          = { fg = palette.lack },
@@ -868,6 +869,13 @@ else
     TelescopeResultsTitle = { fg = ansi.yellow },
     --- fzf-lua
     FzfLuaBorder = { fg = palette.gray6 },
+    --- mini.nvim
+    MiniPickMatchCurrent = { fg = palette.gray6, bold = true },
+    MiniPickPrompt = { fg = palette.lack },
+    MiniPickPromptCaret = { fg = palette.lack },
+    MiniPickPromptPrefix = { fg = palette.lack },
+    MiniPickBorder = blink_menu_border,
+    MiniPickBorderBusy = { link = "MiniPickBorder" },
     --- Neogit
     NeogitPopupActionDisabled = { fg = darker_fg },
     NeogitPopupActionKey = { fg = ansi.magenta },
