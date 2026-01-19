@@ -14,7 +14,7 @@ local palette = {
   green = "#789978",
   blue = "#7788AA",
   red = "#D70000",
-  lavender = "#7A8A7A",
+  sage = "#7A8A7A",
   none = "none",
   black = "#000000",
   gray1 = "#080808",
@@ -91,7 +91,7 @@ if vim.o.background == "dark" then
   local def_fg = palette.lack
   local const_fg = palette.gray6
   local active = palette.gray7
-  local string_fg = palette.lavender
+  local string_fg = palette.gray7
   local darker_fg = palette.gray6
   local diffadd = palette.green
   local diffdelete = palette.orange
@@ -484,7 +484,7 @@ if vim.o.background == "dark" then
     rainbowcol1                                = { fg = ansi.yellow },
     rainbowcol2                                = { fg = ansi.magenta },
     rainbowcol3                                = { fg = ansi.blue },
-    rainbowcol4                                = { fg = palette.lavender },
+    rainbowcol4                                = { fg = palette.sage },
     rainbowcol5                                = { fg = ansi.brightyellow },
     rainbowcol6                                = { fg = ansi.red },
     rainbowcol7                                = { fg = ansi.cyan },
@@ -571,7 +571,7 @@ else
   local const_fg = palette.orange
   local active = palette.gray5
   local active_blue = palette.blue
-  local string_fg = palette.lavender
+  local string_fg = palette.sage
   local darker_fg = palette.gray6
   local diffadd = palette.green
   local diffdelete = palette.red
@@ -960,7 +960,7 @@ else
     rainbowcol1 = { fg = ansi.yellow },
     rainbowcol2 = { fg = ansi.magenta },
     rainbowcol3 = { fg = ansi.blue },
-    rainbowcol4 = { fg = palette.lavender },
+    rainbowcol4 = { fg = palette.sage },
     rainbowcol5 = { fg = ansi.brightyellow },
     rainbowcol6 = { fg = ansi.red },
     rainbowcol7 = { fg = ansi.cyan },
