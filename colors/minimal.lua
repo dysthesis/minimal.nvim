@@ -132,7 +132,7 @@ if vim.o.background == "dark" then
     bg = palette.none
     float_bg = palette.none
     virtual_bg = palette.none
-    floatborder = floatborder_opt and { bg = bg, fg = palette.gray4 }
+    floatborder = floatborder_opt and { bg = bg, fg = palette.gray7 }
         or {
           bg = float_bg,
           fg = float_bg,
