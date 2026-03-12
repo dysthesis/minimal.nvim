@@ -123,7 +123,7 @@ if vim.o.background == "dark" then
   local comment_fg = dim_comments_opt and dim_comment or comment
   local pmenu_bg = special.popup_background
   local float_bg = floatborder_opt and bg or pmenu_bg
-  local floatborder = floatborder_opt and { bg = bg, fg = palette.gray4 }
+  local floatborder = floatborder_opt and { bg = bg, fg = palette.gray7 }
       or {
         bg = float_bg,
         fg = float_bg,
