@@ -139,10 +139,7 @@ if vim.o.background == "dark" then
         }
   end
   local blink_menu = transparent_opt and { bg = bg, fg = fg } or { link = "Pmenu" }
-  local menu_border = { bg = float_bg, fg = palette.gray7 }
-  if transparent_opt then
-    menu_border.bg = bg
-  end
+  local menu_border = { fg = palette.gray7, bg = palette.none }
   local todo_colors = {
     FIX = error,
     TODO = info,
@@ -622,10 +619,7 @@ else
         }
   end
   local blink_menu = transparent_opt and { bg = bg, fg = fg } or { link = "Pmenu" }
-  local blink_menu_border = { bg = float_bg, fg = palette.gray7 }
-  if transparent_opt then
-    blink_menu_border.bg = bg
-  end
+  local blink_menu_border = { fg = palette.gray7, bg = palette.none }
   local todo_colors = {
     FIX = error,
     TODO = info,
