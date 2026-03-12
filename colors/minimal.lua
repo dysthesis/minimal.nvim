@@ -390,12 +390,12 @@ if vim.o.background == "dark" then
     --- fzf-lua
     FzfLuaBorder                               = { fg = palette.gray3 },
     --- mini.nvim
-    MiniPickMatchCurrent                       = { fg = palette.gray6, bold = true },
-    MiniPickPrompt                             = { fg = palette.lack },
-    MiniPickPromptCaret                        = { fg = palette.lack },
-    MiniPickPromptPrefix                       = { fg = palette.lack },
-    MiniPickBorder                             = menu_border,
-    MiniPickBorderBusy                         = { link = "MiniPickBorder" },
+    -- MiniPickMatchCurrent                       = { fg = palette.gray6, bold = true },
+    -- MiniPickPrompt                             = { fg = palette.lack },
+    -- MiniPickPromptCaret                        = { fg = palette.lack },
+    -- MiniPickPromptPrefix                       = { fg = palette.lack },
+    -- MiniPickBorder                             = menu_border,
+    -- MiniPickBorderBusy                         = { link = "MiniPickBorder" },
     -- mini.clue
     MiniClueDescGroup                          = { fg = palette.lack },
     MiniClueSeparator                          = { fg = palette.lack },
