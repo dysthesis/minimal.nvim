@@ -18,11 +18,11 @@ Instead, Minimal uses restrained highlighting; it defines just seven classes:
 
 Additionally:
 
-- Minimal does not highlight most standard language keywords (`function`, `struct`, `const`, etc). It highlights control-flow transfer keywords more strongly than control-flow structure keywords because exits and jumps are rarer and more important scan targets.
+- Minimal does not highlight most standard language keywords (`function`, `struct`, `const`, etc). It highlights control-flow structure keywords in muted bold and transfer keywords in orange because both shape readability, while exits and jumps are rarer scan targets.
 
 - Minimal highlights comments. Most schemes try to dim comments by using low-contrast greys. I think if code was complex enough that it deserved an explanation then it’s that explanation we should see and read first. It would be a crime to hide it.
 
-- Minimal doesn’t use font variations. It’s hard to scan code when it jumps between normal, **bold** and *italics* all the time. Also, not all fonts provide bold/italics variants.
+- Minimal uses font variations sparingly. Excessive **bold** and *italics* make code harder to scan, and not all fonts provide bold/italics variants.
 
 - Having minimal amount of rules means you can consciously use them to look for the exact piece of information you need. Most other “fireworks” schemes provide only one meaningful contribution: if it’s colored it’s probably syntactically correct. Instead, with Minimal you can actually remember all the rules, and e.g. if you need to look for a string you know that you’re looking for a green token. And all the strings really pop out because there are not many other things highlighted.
 
