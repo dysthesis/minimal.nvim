@@ -2,18 +2,18 @@
 ;; extends
 
 (binding
-  attrpath: (attrpath (identifier) @MinimalDefinition))
+  attrpath: (attrpath (identifier) @MinimalBinding))
 
 (inherit_from
   attrs: (inherited_attrs
-           attr: (identifier) @MinimalDefinition))
+           attr: (identifier) @MinimalBinding))
 
 (formal
-  name: (identifier) @MinimalDefinition
+  name: (identifier) @MinimalBinding
   "?"? @MinimalPunctuation)
 
 (function_expression
-  universal: (identifier) @MinimalDefinition)
+  universal: (identifier) @MinimalBinding)
 
 ((comment) @MinimalHashbang
  (#match? @MinimalHashbang "^#!/"))

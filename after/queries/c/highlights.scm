@@ -32,3 +32,26 @@
 (declaration
   type: (enum_specifier
           name: (type_identifier) @MinimalBase))
+
+(parameter_declaration
+  declarator: (identifier) @MinimalBinding)
+
+(parameter_declaration
+  declarator: (pointer_declarator
+                declarator: (identifier) @MinimalBinding))
+
+(declaration
+  declarator: (identifier) @MinimalBinding)
+
+(declaration
+  declarator: (init_declarator
+                declarator: (identifier) @MinimalBinding))
+
+(declaration
+  declarator: (pointer_declarator
+                declarator: (identifier) @MinimalBinding))
+
+(declaration
+  declarator: (init_declarator
+                declarator: (pointer_declarator
+                              declarator: (identifier) @MinimalBinding)))
