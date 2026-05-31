@@ -6,17 +6,18 @@ A color scheme with minimal amount of highlighting for Neovim. Formerly known as
 ## Motivation
 Most color schemes highlight everything they can, ending up looking like a fireworks show.
 
-Instead, Minimal uses restrained highlighting; it defines just five classes:
+Instead, Minimal uses restrained highlighting; it defines just six classes:
 
   1. Strings
   2. All statically known constants (numbers, symbols, keywords, boolean values)
   3. Comments
   4. Global definitions
   5. Name bindings, such as parameters and local variable introductions
+  6. Control-flow keywords that can redirect execution, such as loops, branches, `return`, `break`, and `continue`
 
 Additionally:
 
-- Minimal does not highlight standard language keywords (if, else, function, etc). They are usually the least important and most obvious part of any program.
+- Minimal does not highlight most standard language keywords (`function`, `struct`, `const`, etc). It highlights control-flow keywords because they change execution path and are often useful scan targets.
 
 - Minimal highlights comments. Most schemes try to dim comments by using low-contrast greys. I think if code was complex enough that it deserved an explanation then it’s that explanation we should see and read first. It would be a crime to hide it.
 
