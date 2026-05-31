@@ -58,6 +58,12 @@
 
 [
   "default"
+] @MinimalControlStructure
+(#set! "priority" 105)
+
+[
+  "break"
+  "continue"
   "goto"
-] @MinimalControlFlow
+] @MinimalControlTransfer
 (#set! "priority" 105)

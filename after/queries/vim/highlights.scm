@@ -11,10 +11,15 @@
   (function_declaration
     name: (identifier) @MinimalDefinition))
 
-"return" @MinimalControlFlow
+[
+  "break"
+  "continue"
+  "return"
+  "throw"
+] @MinimalControlTransfer
 (#set! "priority" 105)
 
 ((unknown_builtin_statement
-   (unknown_command_name) @MinimalControlFlow)
- (#eq? @MinimalControlFlow "finish")
+   (unknown_command_name) @MinimalControlTransfer)
+ (#eq? @MinimalControlTransfer "finish")
  (#set! "priority" 105))

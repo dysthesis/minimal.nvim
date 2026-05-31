@@ -46,10 +46,12 @@
     name: (identifier) @MinimalBinding))
 
 [
-  "goto"
   "in"
-] @MinimalControlFlow
+] @MinimalControlStructure
 (#set! "priority" 105)
 
-(break_statement) @MinimalControlFlow
+"goto" @MinimalControlTransfer
+(#set! "priority" 105)
+
+(break_statement) @MinimalControlTransfer
 (#set! "priority" 105)

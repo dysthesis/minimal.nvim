@@ -81,3 +81,16 @@
   "<" @MinimalPunctuation)
 (type_parameters
   ">" @MinimalPunctuation)
+
+[
+  "await"
+  "break"
+  "continue"
+  "return"
+  "yield"
+] @MinimalControlTransfer
+(#set! "priority" 105)
+
+(try_expression
+  "?" @MinimalControlTransfer)
+(#set! "priority" 105)

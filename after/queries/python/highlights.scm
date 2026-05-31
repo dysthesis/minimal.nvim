@@ -29,5 +29,11 @@
 (as_pattern
   alias: (as_pattern_target (identifier) @MinimalBinding))
 
-"assert" @MinimalControlFlow
+[
+  "assert"
+  "await"
+  "break"
+  "continue"
+  "raise"
+] @MinimalControlTransfer
 (#set! "priority" 105)

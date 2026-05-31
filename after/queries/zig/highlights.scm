@@ -18,5 +18,15 @@
 [
   "defer"
   "errdefer"
-] @MinimalControlFlow
+] @MinimalControlStructure
+(#set! "priority" 105)
+
+[
+  "await"
+  "break"
+  "continue"
+  "resume"
+  "suspend"
+  "try"
+] @MinimalControlTransfer
 (#set! "priority" 105)

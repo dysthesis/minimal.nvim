@@ -35,13 +35,17 @@
     name: (identifier) @MinimalBinding))
 
 [
-  "break"
-  "continue"
   "default"
   "defer"
-  "fallthrough"
-  "goto"
   "range"
   "select"
-] @MinimalControlFlow
+] @MinimalControlStructure
+(#set! "priority" 105)
+
+[
+  "break"
+  "continue"
+  "fallthrough"
+  "goto"
+] @MinimalControlTransfer
 (#set! "priority" 105)
