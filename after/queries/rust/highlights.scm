@@ -42,13 +42,34 @@
   name: (identifier) @MinimalDefinition)
 
 (parameter
-  pattern: (identifier_pattern (identifier) @MinimalDefinition))
+  pattern: (identifier) @MinimalBinding)
 
 (self_parameter
-  "self" @MinimalDefinition)
+  (self) @MinimalBinding)
 
 (let_declaration
-  pattern: (identifier_pattern (identifier) @MinimalDefinition))
+  pattern: (identifier) @MinimalBinding)
+
+(for_expression
+  pattern: (identifier) @MinimalBinding)
+
+(tuple_pattern
+  (identifier) @MinimalBinding)
+
+(mut_pattern
+  (identifier) @MinimalBinding)
+
+(field_pattern
+  name: (shorthand_field_identifier) @MinimalBinding)
+(field_pattern
+  pattern: (identifier) @MinimalBinding)
+
+(match_pattern
+  (identifier) @MinimalBinding)
+
+(tuple_struct_pattern
+  type: (identifier)
+  (identifier) @MinimalBinding)
 
 (for_expression
   "in" @MinimalPunctuation)

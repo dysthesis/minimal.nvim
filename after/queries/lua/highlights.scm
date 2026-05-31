@@ -25,3 +25,22 @@
   (field name: (identifier) @MinimalString))
 
 (hash_bang_line) @MinimalHashbang
+
+(parameters
+  name: (identifier) @MinimalBinding)
+
+(variable_declaration
+  (variable_list
+    name: (identifier) @MinimalBinding))
+
+(variable_declaration
+  (assignment_statement
+    (variable_list
+      name: (identifier) @MinimalBinding)))
+
+(for_numeric_clause
+  name: (identifier) @MinimalBinding)
+
+(for_generic_clause
+  (variable_list
+    name: (identifier) @MinimalBinding))

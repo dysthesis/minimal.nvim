@@ -6,12 +6,13 @@ A color scheme with minimal amount of highlighting for Neovim. Formerly known as
 ## Motivation
 Most color schemes highlight everything they can, ending up looking like a fireworks show.
 
-Instead, Minimal uses restrained highlighting; it defines just four classes:
+Instead, Minimal uses restrained highlighting; it defines just five classes:
 
   1. Strings
   2. All statically known constants (numbers, symbols, keywords, boolean values)
   3. Comments
   4. Global definitions
+  5. Name bindings, such as parameters and local variable introductions
 
 Additionally:
 

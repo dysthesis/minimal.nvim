@@ -89,6 +89,7 @@ if vim.o.background == "dark" then
   local fg = palette.gray8
   local punct_fg = palette.gray6
   local def_fg = palette.lack
+  local binding_fg = special.param
   local const_fg = palette.gray6
   local active = palette.gray7
   local string_fg = palette.gray7
@@ -308,7 +309,7 @@ if vim.o.background == "dark" then
     TSMethod                                   = { fg = ansi.white },
     TSNamespace                                = { fg = ansi.white },
     TSNone                                     = { fg = const_fg },
-    TSParameter                                = { fg = ansi.white, bold = bold_intro_opt and 1 or nil },
+    TSParameter                                = { fg = ansi.white },
     TSParameterReference                       = { fg = ansi.white },
     TSProperty                                 = { fg = ansi.white },
     TSPunctDelimiter                           = { fg = punct_fg },
@@ -345,8 +346,8 @@ if vim.o.background == "dark" then
     ["@module"]                                = { fg = ansi.white },
     ["@namespace"]                             = { fg = ansi.white },
     ["@none"]                                  = { fg = const_fg },
-    ["@parameter"]                             = { fg = ansi.white, bold = bold_intro_opt and 1 or nil },
-    ["@variable.parameter"]                    = { fg = ansi.white, bold = bold_intro_opt and 1 or nil },
+    ["@parameter"]                             = { fg = ansi.white },
+    ["@variable.parameter"]                    = { fg = ansi.white },
     ["@parameter.reference"]                   = { fg = ansi.white },
     ["@property"]                              = { fg = ansi.white },
     ["@punctuation.delimiter"]                 = { fg = punct_fg },
@@ -369,6 +370,7 @@ if vim.o.background == "dark" then
 
     --- Theme specific
     ["@MinimalBase"]                           = { fg = ansi.white },
+    ["@MinimalBinding"]                        = { fg = binding_fg },
     ["@MinimalConstant"]                       = { fg = const_fg },
     ["@MinimalDefinition"]                     = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
     ["@MinimalPunctuation"]                    = { fg = punct_fg },
@@ -517,7 +519,7 @@ if vim.o.background == "dark" then
     asmDirective                               = { fg = dim_comment },
     nasmLabel                                  = { link = "@MinimalDefinition" },
 
-    ["@lsp.mod.declaration"]                   = { fg = fg, bold = bold_intro_opt and 1 or nil },
+    ["@lsp.mod.declaration"]                   = {},
     ["@lsp.type.enumMember"]                   = { fg = fg },
     ["@lsp.type.function"]                     = { fg = fg },
     ["@lsp.type.method"]                       = { fg = fg },
@@ -533,16 +535,11 @@ if vim.o.background == "dark" then
     ["@lsp.typemod.selfKeyword"]               = { fg = fg },
     ["@lsp.typemod.struct.declaration"]        = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
     ["@lsp.typemod.type.declaration"]          = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
-    ["@lsp.type.parameter"]                    = { fg = fg, bold = bold_intro_opt and 1 or nil },
-    ["@lsp.typemod.parameter.declaration"]     = { fg = fg, bold = bold_intro_opt and 1 or nil },
-    ["@lsp.typemod.parameter.definition"]      = { fg = fg, bold = bold_intro_opt and 1 or nil },
-    ["@lsp.typemod.variable.declaration"]      = { fg = fg, bold = bold_intro_opt and 1 or nil },
-    ["@lsp.typemod.variable.definition"]       = { fg = fg, bold = bold_intro_opt and 1 or nil },
-    ["@lsp.type.parameter"]                    = { fg = fg, bold = bold_intro_opt and 1 or nil },
-    ["@lsp.typemod.parameter.declaration"]     = { fg = fg, bold = bold_intro_opt and 1 or nil },
-    ["@lsp.typemod.parameter.definition"]      = { fg = fg, bold = bold_intro_opt and 1 or nil },
-    ["@lsp.typemod.variable.declaration"]      = { fg = fg, bold = bold_intro_opt and 1 or nil },
-    ["@lsp.typemod.variable.definition"]       = { fg = fg, bold = bold_intro_opt and 1 or nil },
+    ["@lsp.type.parameter"]                    = { fg = fg },
+    ["@lsp.typemod.parameter.declaration"]     = { link = "@MinimalBinding" },
+    ["@lsp.typemod.parameter.definition"]      = { link = "@MinimalBinding" },
+    ["@lsp.typemod.variable.declaration"]      = { link = "@MinimalBinding" },
+    ["@lsp.typemod.variable.definition"]       = { link = "@MinimalBinding" },
   }
 else
   -- terminal colors
@@ -568,6 +565,7 @@ else
   local fg = palette.black
   local punct_fg = palette.gray6
   local def_fg = palette.blue
+  local binding_fg = palette.gray5
   local const_fg = palette.orange
   local active = palette.gray5
   local active_blue = palette.blue
@@ -788,7 +786,7 @@ else
     TSMethod = { fg = ansi.black },
     TSNamespace = { fg = ansi.black },
     TSNone = { fg = const_fg },
-    TSParameter = { fg = ansi.black, bold = bold_intro_opt and 1 or nil },
+    TSParameter = { fg = ansi.black },
     TSParameterReference = { fg = ansi.black },
     TSProperty = { fg = ansi.black },
     TSPunctDelimiter = { fg = punct_fg },
@@ -825,8 +823,8 @@ else
     ["@module"] = { fg = ansi.black },
     ["@namespace"] = { fg = ansi.black },
     ["@none"] = { fg = const_fg },
-    ["@parameter"] = { fg = ansi.black, bold = bold_intro_opt and 1 or nil },
-    ["@variable.parameter"] = { fg = ansi.black, bold = bold_intro_opt and 1 or nil },
+    ["@parameter"] = { fg = ansi.black },
+    ["@variable.parameter"] = { fg = ansi.black },
     ["@parameter.reference"] = { fg = ansi.black },
     ["@property"] = { fg = ansi.black },
     ["@punctuation.delimiter"] = { fg = punct_fg },
@@ -849,6 +847,7 @@ else
 
     --- Theme specific
     ["@MinimalBase"] = { fg = ansi.black },
+    ["@MinimalBinding"] = { fg = binding_fg },
     ["@MinimalConstant"] = { fg = const_fg },
     ["@MinimalDefinition"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
     ["@MinimalPunctuation"] = { fg = punct_fg },
@@ -992,7 +991,7 @@ else
     --- asm
     asmDirective = { fg = dim_comment },
     nasmLabel = { link = "@MinimalDefinition" },
-    ["@lsp.mod.declaration"] = { fg = fg, bold = bold_intro_opt and 1 or nil },
+    ["@lsp.mod.declaration"] = {},
     ["@lsp.type.enumMember"] = { fg = fg },
     ["@lsp.type.function"] = { fg = fg },
     ["@lsp.type.method"] = { fg = fg },
@@ -1008,6 +1007,11 @@ else
     ["@lsp.typemod.selfKeyword"] = { fg = fg },
     ["@lsp.typemod.struct.declaration"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
     ["@lsp.typemod.type.declaration"] = { fg = def_fg, bold = bold_intro_opt and 1 or nil },
+    ["@lsp.type.parameter"] = { fg = fg },
+    ["@lsp.typemod.parameter.declaration"] = { link = "@MinimalBinding" },
+    ["@lsp.typemod.parameter.definition"] = { link = "@MinimalBinding" },
+    ["@lsp.typemod.variable.declaration"] = { link = "@MinimalBinding" },
+    ["@lsp.typemod.variable.definition"] = { link = "@MinimalBinding" },
   }
 end
 
