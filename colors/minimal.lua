@@ -89,7 +89,7 @@ if vim.o.background == "dark" then
   local fg = palette.gray8
   local punct_fg = palette.gray6
   local def_fg = palette.lack
-  local binding_fg = special.param
+  local binding_fg = special.lack
   local const_fg = palette.gray6
   local active = palette.gray7
   local string_fg = palette.gray7
