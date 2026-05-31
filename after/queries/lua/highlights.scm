@@ -44,3 +44,12 @@
 (for_generic_clause
   (variable_list
     name: (identifier) @MinimalBinding))
+
+[
+  "goto"
+  "in"
+] @MinimalControlFlow
+(#set! "priority" 105)
+
+(break_statement) @MinimalControlFlow
+(#set! "priority" 105)

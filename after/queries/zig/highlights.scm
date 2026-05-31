@@ -14,3 +14,9 @@
 
 (payload
   (identifier) @MinimalBinding)
+
+[
+  "defer"
+  "errdefer"
+] @MinimalControlFlow
+(#set! "priority" 105)

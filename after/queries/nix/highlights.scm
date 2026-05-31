@@ -17,3 +17,6 @@
 
 ((comment) @MinimalHashbang
  (#match? @MinimalHashbang "^#!/"))
+
+"assert" @MinimalControlFlow
+(#set! "priority" 105)

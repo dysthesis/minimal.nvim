@@ -55,3 +55,9 @@
   declarator: (init_declarator
                 declarator: (pointer_declarator
                               declarator: (identifier) @MinimalBinding)))
+
+[
+  "default"
+  "goto"
+] @MinimalControlFlow
+(#set! "priority" 105)

@@ -28,3 +28,6 @@
   left: (identifier) @MinimalBinding)
 (as_pattern
   alias: (as_pattern_target (identifier) @MinimalBinding))
+
+"assert" @MinimalControlFlow
+(#set! "priority" 105)

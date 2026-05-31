@@ -79,3 +79,9 @@
 (declaration
   type: (enum_specifier
           name: (type_identifier) @MinimalBase))
+
+[
+  "default"
+  "goto"
+] @MinimalControlFlow
+(#set! "priority" 105)

@@ -33,3 +33,15 @@
 (var_declaration
   (var_spec
     name: (identifier) @MinimalBinding))
+
+[
+  "break"
+  "continue"
+  "default"
+  "defer"
+  "fallthrough"
+  "goto"
+  "range"
+  "select"
+] @MinimalControlFlow
+(#set! "priority" 105)
