@@ -529,6 +529,7 @@ if vim.o.background == "dark" then
     nasmLabel                                  = { link = "@MinimalDefinition" },
 
     ["@lsp.mod.declaration"]                   = {},
+    ["@lsp.mod.controlFlow"]                   = { fg = warn },
     ["@lsp.type.enumMember"]                   = { fg = fg },
     ["@lsp.type.function"]                     = { fg = fg },
     ["@lsp.type.method"]                       = { fg = fg },
@@ -1010,6 +1011,7 @@ else
     asmDirective = { fg = dim_comment },
     nasmLabel = { link = "@MinimalDefinition" },
     ["@lsp.mod.declaration"] = {},
+    ["@lsp.mod.controlFlow"] = { fg = warn },
     ["@lsp.type.enumMember"] = { fg = fg },
     ["@lsp.type.function"] = { fg = fg },
     ["@lsp.type.method"] = { fg = fg },
