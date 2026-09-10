@@ -2,6 +2,22 @@ vim.cmd("hi clear")
 if vim.fn.exists("syntax_on") == 1 then
   vim.cmd("syntax reset")
 end
+local function blend(fg, bg, amount)
+  local function channel(hex, i)
+    return tonumber(hex:sub(i, i + 1), 16)
+  end
+
+  local function mix(a, b)
+    return math.floor(a * amount + b * (1 - amount) + 0.5)
+  end
+
+  return string.format(
+    "#%02x%02x%02x",
+    mix(channel(fg, 2), channel(bg, 2)),
+    mix(channel(fg, 4), channel(bg, 4)),
+    mix(channel(fg, 6), channel(bg, 6))
+  )
+end
 
 vim.g.colors_name = "minimal"
 
@@ -94,9 +110,14 @@ if vim.o.background == "dark" then
   local active = palette.gray7
   local string_fg = palette.gray7
   local darker_fg = palette.gray6
+
   local diffadd = palette.green
   local diffdelete = palette.orange
-  local diffchange = palette.gray6
+  local diffchange = palette.blue
+	local diffadd_bg = blend(diffadd, special.main_background, 0.18)
+	local diffdelete_bg = blend(diffdelete, special.main_background, 0.18)
+	local diffchange_bg = blend(diffchange, special.main_background, 0.18)
+
   local statusline = special.statusline
   local comment = palette.yellow
   local dim_comment = special.comment
@@ -162,10 +183,10 @@ if vim.o.background == "dark" then
     CursorColumn                               = { bg = special.whitespace },
     CursorLine                                 = { bg = special.whitespace },
     Directory                                  = { fg = ansi.blue },
-    DiffAdd                                    = { bg = special.whitespace, fg = diffadd },
-    DiffDelete                                 = { bg = special.whitespace, fg = diffdelete },
+		DiffAdd																		 = { fg = diffadd, bg = diffadd_bg, },
+		DiffDelete																 = { fg = diffdelete, bg = diffdelete_bg, },
+    DiffChange																 = { fg = diffchange, bg = diffchange_bg, },
     DiffText                                   = { fg = bg, bg = palette.gray6 },
-    DiffChange                                 = { bg = special.whitespace, fg = diffchange },
     EndOfBuffer                                = { fg = special.main_background },
     -- TermCursor   { }, -- cursor in a focused terminal
     TermCursorNC                               = { fg = bg, bg = fg },
@@ -656,8 +677,8 @@ else
     Directory = { fg = ansi.blue },
     DiffAdd = { bg = palette.gray9, fg = diffadd },
     DiffDelete = { bg = palette.gray9, fg = diffdelete },
-    DiffText = { fg = fg, bg = palette.gray8 },
     DiffChange = { bg = palette.gray9, fg = diffchange },
+    DiffText = { fg = fg, bg = palette.gray8 },
     EndOfBuffer = { fg = palette.gray6 },
     -- TermCursor   { }, -- cursor in a focused terminal
     TermCursorNC = { fg = bg, bg = fg },
